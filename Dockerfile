@@ -33,8 +33,6 @@ VOLUME /srv/repositories
 WORKDIR /opt/ghidra
 ENV ghidra_home=/opt/ghidra
 COPY --chown=ghidra:ghidra server.sh /opt/ghidra/
-COPY --chown=ghidra:ghidra create_users.sh /opt/ghidra/
-COPY --chown=ghidra:ghidra start_server.sh /opt/ghidra/
 EXPOSE 13100
 EXPOSE 13101
 EXPOSE 13102
