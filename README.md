@@ -17,8 +17,11 @@ For example, to run Ghidra server in a container with a memory limit of 1GB and
 create users named `esfried` and `ghidra`, use:
 
 ```bash
-docker run -it --rm -m 1G --env GHIDRA_DEFAULT_USERS=esfried,ghidra bskaggs/ghidra
+docker run -it --rm -m 1G --env HOST_IP=$(curl -s http://whatismyip.akamai.com/) --env GHIDRA_DEFAULT_USERS=tofarley,wnshobe -p 13100-13102:13100-13102 <image>
 ```
+
+We pass the environment variable `$HOST_IP` to the container to allow us to bind
+in spite of ghidra's reverse DNS requirements (See Documentation).
 
 If you would like to pass any additional flags to the Ghidra server, set
 `GHIDRA_FLAGS` to specify the flags and values. 
