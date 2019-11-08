@@ -20,6 +20,11 @@ create users named `esfried` and `ghidra`, use:
 docker run -it --rm -m 1G --env HOST_IP=$(curl -s http://whatismyip.akamai.com/) --env GHIDRA_DEFAULT_USERS=tofarley,wnshobe -p 13100-13102:13100-13102 <image>
 ```
 
+To connect locally:
+```bash
+docker run -it --rm -m 1G --env HOST_IP=127.0.0.1 --env GHIDRA_DEFAULT_USERS=tofarley -p 13100-13102:13100-13102 <container>
+```
+
 We pass the environment variable `$HOST_IP` to the container to allow us to bind
 in spite of ghidra's reverse DNS requirements (See Documentation).
 
